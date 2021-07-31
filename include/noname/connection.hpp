@@ -3,7 +3,8 @@
 namespace NoName {
 
   struct Connection {
-    virtual void execute() = 0;
+    virtual void initialize(){};
+    virtual void execute(){};
   };
 
 }  // namespace NoName

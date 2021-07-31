@@ -1,7 +1,7 @@
 #include "noname/entity.hpp"
 
+#include "noname/block.hpp"
 #include "noname/connection.hpp"
-#include "noname/function_block.hpp"
 
 namespace NoName {
 
@@ -10,9 +10,9 @@ namespace NoName {
       // Execute according to topological sort
   };
 
-  void Entity::add_block(const std::shared_ptr<FunctionBlock> block) {
+  void Entity::add_block(const std::shared_ptr<Block> block) {
     this->registry.emplace(std::type_index(typeid(*block.get())), block);
-  };
+    };
   void Entity::add_entity(const std::shared_ptr<Entity>& entity){
       // Not implemented yet!
   };
@@ -21,8 +21,8 @@ namespace NoName {
     auto [first, last] = this->registry.equal_range(std::type_index(typeid(T)));
 
     std::vector<std::shared_ptr<T>> out;
-    for (auto block = first; block != last; block++) {
-      out.push_back(std::static_pointer_cast<T>(*block));
+    for (auto it = first; it != last; ++it) {
+      out.push_back(std::static_pointer_cast<T>(it->second));
     }
     return out;
   };

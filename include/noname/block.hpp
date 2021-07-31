@@ -19,7 +19,7 @@
 
 namespace NoName {
 
-  struct FunctionBlock {
+  struct Block {
     struct Parameters {
       BOOST_HANA_DEFINE_STRUCT(Parameters);
     };
