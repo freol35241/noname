@@ -53,6 +53,14 @@ if(Eigen_ADDED)
   target_include_directories(Eigen INTERFACE ${Eigen_SOURCE_DIR})
 endif()
 
+CPMAddPackage(
+    NAME nlohmann_json
+    GITHUB_REPOSITORY nlohmann/json
+    VERSION 3.9.1
+    OPTIONS 
+    "JSON_BuildTests OFF"
+)
+
 
 # ---- Add source files ----
 
