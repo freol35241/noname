@@ -17,4 +17,14 @@ namespace NoName {
       // Not implemented yet!
   };
 
+  template <typename T> std::vector<std::shared_ptr<T>> Entity::get_block() {
+    auto [first, last] = this->registry.equal_range(std::type_index(typeid(T)));
+
+    std::vector<std::shared_ptr<T>> out;
+    for (auto block = first; block != last; block++) {
+      out.push_back(std::static_pointer_cast<T>(*block));
+    }
+    return out;
+  };
+
 }  // namespace NoName

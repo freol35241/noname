@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <typeindex>
 #include <typeinfo>
 #include <vector>
@@ -25,6 +26,8 @@ namespace NoName {
 
     void add_block(std::shared_ptr<FunctionBlock> block);
     void add_entity(const std::shared_ptr<Entity>& entity);
+
+    template <typename T> std::vector<std::shared_ptr<T>> get_block();
   };
 
 }  // namespace NoName
