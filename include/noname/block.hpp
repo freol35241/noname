@@ -2,6 +2,8 @@
 
 #include "boost/hana.hpp"
 
+// TODO(freol35241): Macro that allows default values and docstrings for Parameters/Inputs/Outputs
+
 #define PARAMETERS(...)                                \
   struct Parameters {                                  \
     BOOST_HANA_DEFINE_STRUCT(Parameters, __VA_ARGS__); \
@@ -34,7 +36,6 @@ namespace NoName {
     Inputs inputs;
     Outputs outputs;
 
-    virtual void initialize(){};
     virtual void evaluate(){};
     virtual void evaluate(double time) { this->evaluate(); };
   };
