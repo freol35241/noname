@@ -80,6 +80,7 @@ target_compile_options(NoName PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permiss
 
 # Link dependencies
 target_link_libraries(NoName PUBLIC Boost::boost)
+target_link_libraries(NoName PRIVATE nlohmann_json)
 
 target_include_directories(
   NoName PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
